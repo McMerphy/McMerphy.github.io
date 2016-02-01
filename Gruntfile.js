@@ -1,13 +1,13 @@
-module.exports = function(grunt) {
+var ngrok = require('ngrok');
 
-  // Project configuration.
+module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       dest: {
         files : {
-          'js/perfmatters.min.js' : 'js/perfmatters.js',
-          'js/google-analytics.min.js' : 'js/google-analytics.js'
+          'js/perfmatters.min.js' : 'raw/js/perfmatters.js',
+          'js/google-analytics.min.js' : 'raw/js/google-analytics.js'
         }
       }
     },
@@ -15,18 +15,47 @@ module.exports = function(grunt) {
     cssmin : {
       target :{
         files : {
-          'css/print.min.css' : 'css/print.css',
-          'css/style.min.css' : 'css/style.css'
+          'css/print.min.css' : 'raw/css/print.css',
+          'css/style.min.css' : 'raw/css/style.css',
+          'css/mobile.min.css' : 'rawcss/mobie.css'
         }
       }
+    },
+
+    imagemin: {                          
+      static: {
+        files: [
+          {src: 'raw/img/profilepic.jpg', dest: 'img/profilepic.jpg'},
+          {src: 'raw/img/pizzeria.jpg', dest: 'img/pizzeria.jpg'}
+        ]
+      }
+    },
+
+    htmlmin: {          
+      dist: { 
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: {                             
+          'index.html': 'raw/index.html',   
+        }
+      }
+    },
+
+    inline: {
+        dist: {
+            src: 'index.html'
+        }
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-inline');
 
-  // Default task(s).
-  grunt.registerTask('default', ['uglify', 'cssmin']);
 
+  grunt.registerTask('default', ['uglify', 'cssmin', 'imagemin', 'htmlmin', 'inline']);
 };

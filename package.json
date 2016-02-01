@@ -3,8 +3,20 @@
   "version": "0.0.1",
   "devDependencies": {
     "grunt": "latest",
-    "grunt-contrib-uglify": "latest",
     "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-watch": "latest"
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-htmlmin": "latest",
+    "grunt-inline": "latest",
+    "load-grunt-tasks": "latest",
+    "ngrok": "^0.2.2"
+  },
+  "local-web-server": {
+    "port": 8100,
+    "forbid": "*.json"
+  },
+  "scripts": {
+    "start": "ws"
   }
 }
