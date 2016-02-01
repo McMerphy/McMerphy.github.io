@@ -26,7 +26,8 @@ module.exports = function(grunt) {
       static: {
         files: [
           {src: 'raw/img/profilepic.jpg', dest: 'img/profilepic.jpg'},
-          {src: 'raw/img/pizzeria.jpg', dest: 'img/pizzeria.jpg'}
+          {src: 'raw/img/pizzeria.jpg', dest: 'img/pizzeria.jpg'},
+          {src: 'raw/img/myprofilepic.jpg', dest: 'img/myprofilepic.jpg'}
         ]
       }
     },
