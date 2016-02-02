@@ -4,12 +4,13 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
-      dest: {
-        files : {
-          'js/perfmatters.min.js' : 'raw/js/perfmatters.js',
-          'js/google-analytics.min.js' : 'raw/js/google-analytics.js'
+      files: { 
+            src: 'raw/js/*.js',  // source files mask
+            dest: 'js/',    // destination folder
+            expand: true,    // allow dynamic building
+            flatten: true,   // remove all unnecessary nesting
+            ext: '.min.js'   // replace .js to .min.js
         }
-      }
     },
 
     cssmin : {
