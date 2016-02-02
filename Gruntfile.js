@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         files : {
           'css/print.min.css' : 'raw/css/print.css',
           'css/style.min.css' : 'raw/css/style.css',
-          'css/mobile.min.css' : 'rawcss/mobie.css'
+          'css/mobile.min.css' : 'raw/css/mobile.css'
         }
       }
     },
